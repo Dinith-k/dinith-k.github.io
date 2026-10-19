@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Marcato – Privacy Policy</title><meta name="description" content="How Marcato: GPS Map Camera Stamp handles your location, your photos and your data.">
+<link rel="icon" href="icon.png" type="image/png"><link rel="stylesheet" href="../style.css"></head>
+<body><main>
+<header><a href="../" class="logo-link" aria-label="Aplogon apps"><img class="logo" src="icon.png" alt=""></a><h1>Privacy Policy</h1></header>
+<p class="meta">Marcato: GPS Map Camera Stamp · Aplogon · Effective 19 October 2026</p>
+
+<section>
+<h2>The short version</h2>
+<p>Marcato is a camera that stamps each photo with the place and time it was taken. It uses your location only while its camera is open, never in the background, and never changes it. Your photos are saved in your phone's gallery, and the records of them stay on your phone. There is no account, no server and no analytics of our own: we (Aplogon) never receive your photos, your location or what you type. To draw the map on a stamp, Marcato downloads map tiles from OpenFreeMap; to find the address, it asks your phone's address lookup service. You can turn off either one. The free version shows ads from Google AdMob, which collects device identifiers and other data as described below.</p>
+</section>
+
+<section>
+<h2>Who we are</h2>
+<p>Marcato is made by Aplogon, an independent app developer based in Sri Lanka. Aplogon is responsible for this app and this policy. Privacy questions: <a href="mailto:apexfordinith@gmail.com">apexfordinith@gmail.com</a>.</p>
+</section>
+
+<section>
+<h2>Your location</h2>
+<p>Marcato asks for permission to use your location the first time its camera opens. You can allow precise location, allow only approximate location (Android then blurs it to about 2 km, and Marcato says so on the stamp), or not allow it (photos are still taken, and the stamp says the location wasn't allowed). Marcato reads your location only while the camera screen is open and in front: when you open another page, switch apps or lock the phone, it stops. It never uses your location in the background and has no background location permission.</p>
+<p>The position comes from your phone's location services, exactly as Android reports it, with its accuracy. Marcato never moves, rounds or invents a position and offers no way to type one in. If Android says a position comes from a mock-location app, or the latest position is more than 30 seconds old when you take a photo, the stamp says so. While the camera is open Marcato also reads the phone's motion sensors (the compass) on the phone to work out which way the camera faces; this is used only for templates that show the direction.</p>
+</section>
+
+<section>
+<h2>Addresses and maps</h2>
+<p><strong>Address lookup.</strong> To show an address, Marcato uses Android's built-in address lookup (the Geocoder). Marcato does not run its own address service and uses no paid map service. On most phones the lookup is provided by Google through Google Play services, which receives the position's coordinates to find the nearest addresses, under Google's own privacy policy. It is looked up again when you move about 30 metres. You can turn this off in Settings › Look Up Addresses; stamps then show coordinates without an address, and no coordinates are sent for lookup.</p>
+<p><strong>Maps.</strong> The small map on a stamp, and the overview map in a PDF report, are drawn on your phone from map data downloaded from <a href="https://openfreemap.org">OpenFreeMap</a> (operated by Hyperknot Software Kft., Hungary, through the Cloudflare network). To get them, Marcato requests the map squares around the position: each request names a square of the map (typically about 2 by 2 km) and comes from your IP address, with a label that names the app. Your exact position is not sent. OpenFreeMap's privacy policy says its access logs do not contain IP addresses and are deleted after 7 days. Downloaded map squares are kept in Marcato's cache on your phone (up to 40 MB, oldest removed first), so the same area is not downloaded again; Settings › Clear Map Cache empties it. You can turn maps off in Settings › Download Maps; stamps are then made without a map and nothing is downloaded. Map data © OpenStreetMap contributors (ODbL) and © OpenMapTiles, credited on every map.</p>
+</section>
+
+<section>
+<h2>Your photos and what they carry</h2>
+<p>Photos are taken with the camera permission, which Marcato asks for the first time its camera opens. Marcato never records sound. Each photo is saved to your phone's gallery in Pictures/Marcato (or Pictures/Marcato/<em>job name</em> if you choose an album for each job), through Android's media store, with no storage permission. It stays there if you remove Marcato. If you turn on Settings › Also Save Without Stamp, a copy without the stamp is saved next to it.</p>
+<p><strong>The stamp is part of the picture.</strong> Depending on the template, it shows the place (the address and a map), the coordinates, the date and time with the offset from UTC, the accuracy, the altitude, the direction the camera faced, the job and photo number, your company name and the lines you typed (such as a project, an order number or a note). The time comes from your phone's clock. Anyone who sees the photo can read the stamp.</p>
+<p><strong>The photo file (EXIF).</strong> Marcato writes the date, time and UTC offset, the camera's own details (such as the phone model, exposure and focal length) and "Marcato" as the software into each photo file. With Settings › Save Location in Photo Files on (as it is unless you turn it off, including during setup), it also writes the GPS position, altitude, accuracy, the time of the position fix and the direction the camera faced into the file, so photo and map apps can place it. <strong>Anyone you send the original file to can read where it was taken</strong>, even if the stamp is cropped off. You can turn this off for new photos, or keep it on and turn on Remove Location Data From Files when sharing, which leaves the position out of the shared copies (the stamp still shows the place).</p>
+<p>Marcato also keeps, in its private storage on your phone: a record of each photo (where it is in the gallery, its file name and size, when it was taken and the UTC offset, the position, accuracy, altitude and direction, whether the position was precise or from a mock-location app, the address, the template and its lines, the job and number, and whether the position was written into the file), a small thumbnail of each photo for the Photos page, and your jobs (their names, when they were started and the next photo number). Your settings (such as the stamp style, coordinate format, units, photo size, the current template and job, your company name, your own templates and the lines you typed into templates, whether a Pro Pass is running, and how many times the app has been opened), whether Marcato Pro is active, and, for the free version's ads, when a full-screen ad was last shown and how many were shown today, are stored the same way. While a photo is being stamped, the camera's temporary picture is kept in Marcato's private cache and deleted once the photo is saved.</p>
+<p>None of this is sent to us or to anyone else. Android's app backup is turned off for Marcato, so these records are not copied to your Google account backup and do not move to a new phone with Android's transfer. Your photos are in your gallery, and your phone's own photo backup (such as Google Photos) may copy them if you have turned that on; that backup is managed under your account's settings.</p>
+</section>
+
+<section>
+<h2>Sharing, exports and copying</h2>
+<p>When you share photos, Marcato copies them from your gallery into its private cache (without the GPS position if you chose that) and opens Android's share sheet, so they go only to the app or place you pick, which then handles them under its own policy. A PDF report, spreadsheet (CSV), Google Earth file (KML) or GPS waypoint file (GPX) is made on your phone from the photos you chose: it holds the photos (in the PDF) and their times, positions, accuracy, addresses, jobs and lines, and the PDF includes an overview map of where they were taken. You can share it the same way or save it to Download/Marcato on your phone. These files are not encrypted, so keep them somewhere safe. Marcato replaces its own copies the next time you share or export; Android's sharing step keeps another copy in Marcato's private cache until the next time you share something from Marcato or Android clears the cache.</p>
+<p>Open in Maps passes a photo's coordinates to the maps app you choose on your phone. Tapping an address or coordinates copies them to your phone's clipboard. “Share Marcato” shares a short description and a link to Marcato on Google Play; “Rate Marcato” opens Marcato's page on Google Play.</p>
+</section>
+
+<section>
+<h2>Advertising (free version)</h2>
+<p>The free version shows ads served by Google AdMob: a small ad card at the end of the Photos and Jobs pages, an ad card at the end of a photo's page, a full-screen ad now and then when you come back to the app, and a short video ad when you choose to watch one for a 2-hour Pro Pass. No ad is ever shown on the camera, during setup, on the Marcato Pro page, in the template editor or over a sheet or dialog. Marcato asks Google only for ads suitable for general audiences and teens (rated PG or lower). To show and measure ads, and to prevent fraud and abuse, Google's ads SDK in Marcato collects your device's advertising ID and app set ID, your IP address (from which Google estimates your approximate location), information about how you use the app and interact with ads (such as app launches, ad views and taps), and diagnostic data about the SDK's performance and crashes. This information goes to Google, which may share it with its advertising partners; where a consent message is shown, it lists them. Ad requests never include your photos, your position from the camera, addresses or what you type.</p>
+<p>Where the law requires it (the European Economic Area, the UK and Switzerland), Marcato uses Google's consent tool to ask for your choice before any ad is requested. If you decline personalised ads, you may still see ads that are not personalised; depending on your choices, these can still use your IP address and, where you allowed it, device identifiers for frequency capping, aggregated ad reporting and fraud prevention. The consent tool uses your IP address to work out which rules apply to you, and stores your choice on your phone.</p>
+<p>In US states whose privacy laws give you the right to opt out of the sale or sharing of personal information for targeted advertising, you can opt out the same way. Where these choices apply to you, you can change them at any time in Settings › Ad Privacy Choices; the option appears only where the law requires it. You can also reset or delete your advertising ID in your phone's settings (Privacy › Ads, or Google › Ads on some phones).</p>
+<p>Learn how Google uses information from apps that use its services: <a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a>. Marcato Pro removes all ads.</p>
+</section>
+
+<section>
+<h2>Purchases</h2>
+<p>Marcato Pro is sold through Google Play as a yearly or monthly subscription or a one-time lifetime purchase, and Google Play processes your payment under Google's own privacy policy. Google Play tells the app what your Google account has bought (a product ID, order number and purchase token) so Marcato can unlock Pro. Marcato keeps only whether Pro is active, which product unlocked it and when it last checked, on your phone, and re-checks with Google Play from time to time. We never receive your card or payment details.</p>
+</section>
+
+<section>
+<h2>What Aplogon receives</h2>
+<p>Aplogon has no server and never receives your photos, your location, addresses, your templates or what you type. We receive information only in these cases:</p>
+<ul>
+<li>If you email us from Settings › Contact Support, we get your email address, your message, and the app version, Android version and language setting that Marcato adds at the bottom of the email (you can delete them before sending), plus anything you choose to attach.</li>
+<li>When you buy Marcato Pro, Google Play gives us an order record (such as the order number, product, price, date and country).</li>
+<li>Google Play and AdMob give us statistics and crash reports about the app, which do not include your photos, your location or what you type.</li>
+</ul>
+<p>We use this only to provide support, handle purchases and improve the app, and we never sell it.</p>
+</section>
+
+<section>
+<h2>Permissions</h2>
+<ul>
+<li><strong>Camera</strong>: to take photos. Asked for when the camera first opens.</li>
+<li><strong>Location (precise and approximate)</strong>: for the stamp, only while the camera is open. Asked for when the camera first opens. No background location.</li>
+<li><strong>Internet</strong>: for map tiles, the address lookup, ads and Google Play.</li>
+</ul>
+<p>Marcato does not ask for your storage, microphone, contacts, calendar, phone or SMS, and it has no permission to read other apps' photos.</p>
+</section>
+
+<section>
+<h2>Data retention and deletion</h2>
+<p>Your photos stay in your gallery until you delete them there or in Marcato (Delete from Phone; Android may ask you to confirm). Remove from Marcato and Settings › Clear Photo List remove Marcato's records and thumbnails but keep the photos in your gallery. Removing Marcato deletes everything it keeps in its private storage (records, thumbnails, jobs, templates, settings, the map cache and any shared copies in its cache), but not the photos in your gallery or the files you saved to Downloads or shared. Files you shared stay wherever you sent or saved them.</p>
+<p>Aplogon never receives your photos or records, so we have no copy to delete. If you email us, we keep your message only as long as needed to help you, and you can ask us to delete it. Purchase records are kept by Google Play under its own policies. Data collected by Google for ads, or by your phone's address lookup service, is kept under Google's own policies; OpenFreeMap's logs are deleted after 7 days under its policy.</p>
+</section>
+
+<section>
+<h2>Security</h2>
+<p>Marcato's records, thumbnails and cache are kept in its private app storage, which other apps cannot read. Photos in your gallery can be seen by apps you allow to read your photos. Map, ad and Google Play requests travel over encrypted HTTPS (TLS) connections. A stamp records what the phone reported; it is not a tamper-proof or certified record.</p>
+</section>
+
+<section>
+<h2>Children</h2>
+<p>Marcato is meant for people aged 16 and over and is not directed to children. We do not knowingly collect personal information from anyone under 16, or under the minimum age that applies where they live. If you believe a child has sent us personal information, for example by email, write to <a href="mailto:apexfordinith@gmail.com">apexfordinith@gmail.com</a> and we will delete it.</p>
+</section>
+
+<section>
+<h2>Your choices</h2>
+<ul>
+<li>Allow precise or approximate location, or none, and change it at any time in your phone's settings (Settings › Location Access opens them).</li>
+<li>Turn off Save Location in Photo Files, Look Up Addresses or Download Maps in Settings; turn on Remove Location Data From Files when sharing.</li>
+<li>Choose what each template shows; make your own templates (Pro).</li>
+<li>Delete photos from your phone or only from Marcato's list; clear the photo list or the map cache in Settings.</li>
+<li>Change your ad privacy choices in Settings › Ad Privacy Choices (where the law requires the option), reset or delete your advertising ID in your phone's settings, or upgrade to Pro to remove ads.</li>
+</ul>
+</section>
+
+<section>
+<h2>If you are in the EEA, the UK or Switzerland</h2>
+<p>Aplogon is the controller for Marcato. Google is an independent controller for the ad data its SDK collects and for the address lookup it provides on your phone; OpenFreeMap processes map requests to serve the map. Personalised ads, and storing or reading identifiers on your device for ads, rely on your consent, which you can withdraw at any time in Settings › Ad Privacy Choices. Ads that are not personalised, ad measurement and fraud prevention rely on legitimate interests: ads pay for the free version, and fraud prevention keeps them safe. Using your location for the stamp, the address and the map is part of the service you asked for when you take a photo, and you control it with your phone's location permission and Marcato's settings. We answer your emails and handle purchases to provide the service you asked for. Google may process data outside your country, including in the United States, with the safeguards described in Google's privacy policy.</p>
+<p>You have the right to access, correct or delete your personal data, to restrict or object to its use, to data portability, and to complain to your local data protection authority. Ad data is held by Google, so requests about it are best made to Google at <a href="https://myaccount.google.com/data-and-privacy">myaccount.google.com/data-and-privacy</a>. For anything we hold, such as your emails, write to <a href="mailto:apexfordinith@gmail.com">apexfordinith@gmail.com</a>.</p>
+</section>
+
+<section>
+<h2>US state privacy rights</h2>
+<p>In the free version, Google's ads SDK collects these categories of personal information: identifiers (advertising ID, app set ID, IP address), internet or other electronic network activity (app and ad interactions, SDK diagnostics) and approximate location. They are disclosed to Google for advertising, ad measurement and fraud prevention. Some state laws treat this as a “sale” or “sharing” of personal information for targeted advertising. You can opt out in Settings › Ad Privacy Choices where the option is shown, by deleting your advertising ID in your phone's settings, or by upgrading to Marcato Pro, which shows no ads. Your precise location is used on your phone for the stamp and, if you leave address lookup on, sent to your phone's address lookup service to find the address; it is never sold or used for advertising.</p>
+<p>You can ask us what personal information we hold about you, or ask us to correct or delete it, by writing to <a href="mailto:apexfordinith@gmail.com">apexfordinith@gmail.com</a>. We will not treat you differently for using these rights. We do not knowingly sell or share the personal information of anyone under 16.</p>
+</section>
+
+<section>
+<h2>Changes and contact</h2>
+<p>If this policy changes we will update this page and its effective date. Questions: <a href="mailto:apexfordinith@gmail.com">apexfordinith@gmail.com</a>.</p>
+</section>
+<footer>© 2026 Aplogon</footer>
+</main></body></html>
