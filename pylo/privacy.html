@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pylo – Privacy Policy</title><meta name="description" content="How Pylo: SSH &amp; SFTP Client handles your servers, keys, passwords and data.">
+<link rel="icon" href="icon.png" type="image/png"><link rel="stylesheet" href="../style.css"></head>
+<body><main>
+<header><a href="../" class="logo-link" aria-label="Aplogon apps"><img class="logo" src="icon.png" alt=""></a><h1>Privacy Policy</h1></header>
+<p class="meta">Pylo: SSH &amp; SFTP Client · Aplogon · Effective 20 October 2026</p>
+
+<section>
+<h2>The short version</h2>
+<p>Pylo connects your phone to the SSH servers you add. Your hosts, keys, passwords, snippets and settings stay on your phone; passwords and private keys are encrypted with a key held by Android's Keystore and are never part of Android's backup. What you type in a terminal and the files you move go only to your own servers, encrypted by SSH. Pylo has no account, no server of ours and no analytics of our own, and we (Aplogon) never receive, see or sell your servers, credentials, commands or files. The free version shows ads from Google AdMob, which collects device identifiers and other data as described below.</p>
+</section>
+
+<section>
+<h2>Who we are</h2>
+<p>Pylo is made by Aplogon, an independent app developer based in Sri Lanka. Aplogon is responsible for this app and this policy. Privacy questions: <a href="mailto:apexfordinith@gmail.com">apexfordinith@gmail.com</a>.</p>
+</section>
+
+<section>
+<h2>Your hosts, keys and snippets</h2>
+<p>Pylo keeps what you save in its private database on your phone, which other apps cannot read:</p>
+<ul>
+<li><strong>Hosts:</strong> the label, host name or address, port and user name, whether you sign in with a password or a key (and which key), the group and colour, the command to run on connecting, the folder Files starts in, whether older algorithms are allowed, and your port forwards (local ports and where they lead).</li>
+<li><strong>Keys:</strong> each key's name, type, public key and fingerprint, and the date it was made or imported. The private half is not in the database (see below).</li>
+<li><strong>Known hosts:</strong> for each server you chose to trust, its address and port, the type of its host key and the key's fingerprint, and when you trusted it.</li>
+<li><strong>Snippets:</strong> the names and commands you save. They are stored as you type them, so please don't put passwords in a snippet.</li>
+</ul>
+<p>None of this is sent to us or to anyone else. Hosts you type into Quick Connect are used once and not saved.</p>
+</section>
+
+<section>
+<h2>Passwords and private keys</h2>
+<p>Passwords and private keys are stored only in Pylo's encrypted storage on your phone: they are encrypted with AES-GCM under a key that Android's Keystore holds and that cannot be taken off the phone. They are never written to the database, the settings file or a log, and Pylo's backup rules leave them out of Android's backup and device-to-device transfer.</p>
+<ul>
+<li>A password you type when connecting is saved only if “Save Password” is on, and never for Quick Connect or the Demo Server. A password you enter in a host's settings is saved there, in the same encrypted storage, so Pylo can sign in for you; you can remove it at any time.</li>
+<li>A private key you import is checked on your phone and stored, opened, in the encrypted storage. A key's passphrase is used once to open it and then forgotten. Keys you generate in Pylo are made on your phone and never leave it unless you share the public half.</li>
+<li>Pylo never shows a private key or a saved password again. While you type a password, a passphrase or a private key, Pylo blocks screenshots and screen recording of that screen, and asks your keyboard not to learn from or suggest for what you type. Settings › Block Screenshots does the same for the whole app.</li>
+<li>Deleting a host deletes its saved password; deleting a key deletes its private half. Settings › Delete All Data erases all of them.</li>
+</ul>
+</section>
+
+<section>
+<h2>Connecting to your servers</h2>
+<p>Pylo connects only to the hosts you add or type in, on the port you give, over SSH. Pylo signs in with the password or key you chose for that host. Other sign-in questions (such as a one-time code) are answered with what you type, except that when a server asks for the same password a second way in one sign-in, Pylo gives it the password you just used rather than asking you twice. Everything you type in a terminal, the screen output, and the files you browse, download or upload travel only between your phone and that server, encrypted by SSH; no one else, including Aplogon, can read them. The terminal's text and scrollback are kept only in memory while the session is open, and are never saved or sent anywhere else.</p>
+<p>The first time you connect to a server, Pylo shows its host-key fingerprint and connects only if you trust it. If a server you trusted presents a different key later, Pylo refuses to connect and tells you, until you choose to remove the old key. Pylo uses modern encryption by default; older algorithms are used only for a host where you turn them on.</p>
+<p>Port forwards you set up (Pro) listen only on your phone's own loopback address (127.0.0.1), so only apps on your phone can use them, and their traffic goes through your server.</p>
+<p>The Demo Server is a pretend server inside the app. It works offline, never connects anywhere, and what you do in it is forgotten when Pylo closes.</p>
+</section>
+
+<section>
+<h2>Files (SFTP)</h2>
+<ul>
+<li><strong>Preview:</strong> a text file you preview is read into memory and shown; it is not saved.</li>
+<li><strong>Save to Downloads:</strong> the file is downloaded into Pylo's private cache, then copied to your phone's Download/Pylo folder (on Android 10 and later; on Android 9 and older, to Pylo's own folder <code>Android/data/com.applogon.pylo/files/Download</code>). The copy in the cache is deleted straight away. Files in Download/Pylo are yours: they stay there, where other apps with access to your downloads can see them, until you delete them.</li>
+<li><strong>Share:</strong> the file is downloaded into Pylo's private cache and handed to Android's share sheet, and goes only to the app or place you pick, which then handles it under its own policy. Pylo deletes its download right away, but the sharing component keeps its own copy in Pylo's cache (in <code>cache/share_plus</code>) until the next time you share a file from Pylo or until Android clears the cache.</li>
+<li><strong>Upload:</strong> you choose a file in Android's file picker; Pylo reads it straight from there and sends it to your server, without keeping a copy. Pylo has no permission to read your phone's storage otherwise.</li>
+<li>Renaming, deleting, new folders and permissions (Pro) change files on your server only when you confirm.</li>
+</ul>
+</section>
+
+<section>
+<h2>Clipboard and sharing</h2>
+<p>Pylo reads your clipboard only when you tap Paste (in the terminal's key bar or on the Import Key page), and puts text on it only when you tap Copy (a selection in the terminal, or a public key). Text on the clipboard can be seen by other apps that can read it, so copy secrets with care. Sharing a public key or “Share Pylo” opens Android's share sheet with that text only. “Rate Pylo” opens Pylo's page on Google Play.</p>
+</section>
+
+<section>
+<h2>Notifications and App Lock</h2>
+<p>While a server is connected, Pylo shows an ongoing notification so Android keeps the connection open when you switch apps. It says how many servers are connected, never their names, and has a Disconnect All button. On Android 13 and later Pylo asks for permission to show it, once, after your first real connection; if you decline, sessions still work, but Android may close them sooner in the background.</p>
+<p>App Lock (off until you turn it on) uses Android's own screen: your fingerprint, face, PIN, pattern or password is checked by Android, and Pylo is told only whether it succeeded. Pylo never sees or stores your biometrics or your phone's PIN.</p>
+</section>
+
+<section>
+<h2>Your settings</h2>
+<p>Pylo stores your settings (the theme, terminal theme, text size and cursor, keep-alive, scrollback, bell vibration, keep screen on, App Lock and when it locks, Block Screenshots, showing the Demo Server and hidden files), whether you have finished the introduction and seen the background notice, how many times the app has been opened, whether Pylo Pro is active (which product and when it was last checked), and, for the free version's ads, when a full-screen ad was last shown and how many were shown today. They stay in Pylo's private storage on your phone and are not sent to us or to anyone else.</p>
+<p>If your phone's Android backup is turned on, Android may copy this settings file, and only this file, to your own Google account backup so it can be restored on a new phone; that backup is managed by Google under your Google account settings. Your hosts, keys, passwords, known hosts and snippets are never part of it, so on a new phone you add them again.</p>
+</section>
+
+<section>
+<h2>Permissions</h2>
+<p>Pylo uses the internet to connect to your servers, and for ads and Google Play purchases. It runs a foreground service with a notification while servers are connected (see above), and can use your phone's biometrics for App Lock. It does not ask for permission to use your storage, location, contacts, calendar, camera or microphone.</p>
+</section>
+
+<section>
+<h2>Advertising (free version)</h2>
+<p>The free version shows ads served by Google AdMob: a small ad card at the end of the host list, and a full-screen ad now and then when you come back to Pylo after some time away. No ad is ever shown in a terminal or file session: there is no full-screen ad while a server is connected or connecting, or over the lock screen, the introduction, a sheet or a dialog. Pylo asks Google only for ads suitable for general audiences and teens (rated PG or lower). To show and measure ads, and to prevent fraud and abuse, Google's ads SDK in Pylo collects your device's advertising ID and app set ID, your IP address (from which Google estimates your approximate location), information about how you use the app and interact with ads (such as app launches, ad views and taps), and diagnostic data about the SDK's performance and crashes. This information goes to Google, which may share it with its advertising partners; where a consent message is shown, it lists them. Ad requests never include your hosts, user names, keys, passwords, commands, terminal output or files.</p>
+<p>Where the law requires it (the European Economic Area, the UK and Switzerland), Pylo uses Google's consent tool to ask for your choice before any ad is requested. If you decline personalised ads, you may still see ads that are not personalised; depending on your choices, these can still use your IP address and, where you allowed it, device identifiers for frequency capping, aggregated ad reporting and fraud prevention. The consent tool uses your IP address to work out which rules apply to you, and stores your choice on your phone.</p>
+<p>In US states whose privacy laws give you the right to opt out of the sale or sharing of personal information for targeted advertising, you can opt out the same way. Where these choices apply to you, you can change them at any time in Settings › Ad Privacy Choices; the option appears only where the law requires it. You can also reset or delete your advertising ID in your phone's settings (Privacy › Ads, or Google › Ads on some phones).</p>
+<p>Learn how Google uses information from apps that use its services: <a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a>.</p>
+<p>Pylo Pro removes all ads.</p>
+</section>
+
+<section>
+<h2>Purchases</h2>
+<p>Pylo Pro is sold through Google Play as a monthly or yearly subscription or as a one-time purchase, and Google Play processes your payment under Google's own privacy policy. Google Play tells the app what your Google account has bought (a product ID, order number and purchase token) so Pylo can unlock Pro. Pylo keeps only whether Pro is active, which product unlocked it and when it last checked, on your phone, and re-checks with Google Play from time to time. We never receive your card or payment details.</p>
+</section>
+
+<section>
+<h2>What Aplogon receives</h2>
+<p>Aplogon has no server and never receives your hosts, user names, keys, passwords, known hosts, snippets, commands, terminal output, files or settings. We receive information only in these cases:</p>
+<ul>
+<li>If you email us from Settings › Contact Support, we get your email address, your message (and anything you attach), and the app version, Android version and language setting that Pylo adds at the bottom of the email (you can delete them before sending).</li>
+<li>When you buy Pylo Pro, Google Play gives us an order record (such as the order number, product, price, date and country).</li>
+<li>Google Play and AdMob give us statistics and crash reports about the app, which do not include your servers, credentials, commands or files.</li>
+</ul>
+<p>We use this only to provide support, handle purchases and improve the app, and we never sell it.</p>
+</section>
+
+<section>
+<h2>Data retention and deletion</h2>
+<p>Everything Pylo stores stays on your phone until you delete it. Settings › Delete All Data disconnects every session and erases your hosts, keys, passwords, known hosts and snippets; uninstalling Pylo removes everything it stores, including its encrypted storage and any shared copy in its cache. Files you saved to Download/Pylo (Android 10 and later) stay there until you delete them, and files you shared stay wherever you sent them. If Android backup is on, a copy of Pylo's settings may stay in your Google account backup after you uninstall, and may be restored if you reinstall; Google manages that copy under your Google account's backup settings. Data on your servers stays on your servers.</p>
+<p>Aplogon never receives your data, so we have no copy to delete. If you email us, we keep your message only as long as needed to help you, and you can ask us to delete it. Purchase records are kept by Google Play under its own policies. Data collected by Google for ads is kept under Google's own policies; you can reset or delete your advertising ID in your phone's settings.</p>
+</section>
+
+<section>
+<h2>Security</h2>
+<p>Passwords and private keys are encrypted with a Keystore-held key; the database, settings and cache are in Pylo's private app storage, which other apps cannot read. Connections to your servers use SSH with modern encryption, and every server's host key is checked before Pylo signs in. Ad and Google Play requests travel over encrypted HTTPS (TLS) connections. No method of storage or transmission is perfectly secure, so protect your phone with a screen lock, and consider App Lock.</p>
+</section>
+
+<section>
+<h2>Children</h2>
+<p>Pylo is meant for people aged 16 and over and is not directed to children. We do not knowingly collect personal information from anyone under 16, or under the minimum age that applies where they live. If you believe a child has sent us personal information, for example by email, write to <a href="mailto:apexfordinith@gmail.com">apexfordinith@gmail.com</a> and we will delete it.</p>
+</section>
+
+<section>
+<h2>Your choices</h2>
+<ul>
+<li>Choose which servers Pylo connects to and which host keys it trusts; forget a known host in Settings › Known Hosts.</li>
+<li>Save passwords only when you want to, delete a host, a key or everything (Settings › Delete All Data), and turn on App Lock or Block Screenshots.</li>
+<li>Change your ad privacy choices in Settings › Ad Privacy Choices (where the law requires the option), reset or delete your advertising ID in your phone's settings, or upgrade to Pro to remove ads.</li>
+</ul>
+</section>
+
+<section>
+<h2>If you are in the EEA, the UK or Switzerland</h2>
+<p>Aplogon is the controller for Pylo. Google is an independent controller for the ad data its SDK collects. Personalised ads, and storing or reading identifiers on your device for ads, rely on your consent, which you can withdraw at any time in Settings › Ad Privacy Choices. Ads that are not personalised, ad measurement and fraud prevention rely on legitimate interests: ads pay for the free version, and fraud prevention keeps them safe. We answer your emails and handle purchases to provide the service you asked for. Google may process ad data outside your country, including in the United States, with the safeguards described in Google's privacy policy.</p>
+<p>You have the right to access, correct or delete your personal data, to restrict or object to its use, to data portability, and to complain to your local data protection authority. Ad data is held by Google, so requests about it are best made to Google at <a href="https://myaccount.google.com/data-and-privacy">myaccount.google.com/data-and-privacy</a>. For anything we hold, such as your emails, write to <a href="mailto:apexfordinith@gmail.com">apexfordinith@gmail.com</a>.</p>
+</section>
+
+<section>
+<h2>US state privacy rights</h2>
+<p>In the free version, Google's ads SDK collects these categories of personal information: identifiers (advertising ID, app set ID, IP address), internet or other electronic network activity (app and ad interactions, SDK diagnostics) and approximate location. They are disclosed to Google for advertising, ad measurement and fraud prevention. Some state laws treat this as a “sale” or “sharing” of personal information for targeted advertising. You can opt out in Settings › Ad Privacy Choices where the option is shown, by deleting your advertising ID in your phone's settings, or by upgrading to Pylo Pro, which shows no ads.</p>
+<p>You can ask us what personal information we hold about you, or ask us to correct or delete it, by writing to <a href="mailto:apexfordinith@gmail.com">apexfordinith@gmail.com</a>. We will not treat you differently for using these rights. We do not knowingly sell or share the personal information of anyone under 16.</p>
+</section>
+
+<section>
+<h2>Changes and contact</h2>
+<p>If this policy changes we will update this page and its effective date. Questions: <a href="mailto:apexfordinith@gmail.com">apexfordinith@gmail.com</a>.</p>
+</section>
+<footer>© 2026 Aplogon</footer>
+</main></body></html>
