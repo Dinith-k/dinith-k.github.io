@@ -20,20 +20,20 @@
 <h2>Your hosts, keys and snippets</h2>
 <p>Pylo keeps what you save in its private database on your phone, which other apps cannot read:</p>
 <ul>
-<li><strong>Hosts:</strong> the label, host name or address, port and user name, whether you sign in with a password or a key (and which key), the group and colour, the command to run on connecting, the folder Files starts in, whether older algorithms are allowed, and your port forwards (local ports and where they lead).</li>
+<li><strong>Hosts:</strong> the label, host name or address, port and user name, whether you sign in with a password or a key (and which key), the group and colour, the command to run on connecting, the folder Files starts in, whether older algorithms are allowed, your port forwards (local ports and where they lead), and when you added the host and last connected to it.</li>
 <li><strong>Keys:</strong> each key's name, type, public key and fingerprint, and the date it was made or imported. The private half is not in the database (see below).</li>
 <li><strong>Known hosts:</strong> for each server you chose to trust, its address and port, the type of its host key and the key's fingerprint, and when you trusted it.</li>
-<li><strong>Snippets:</strong> the names and commands you save. They are stored as you type them, so please don't put passwords in a snippet.</li>
+<li><strong>Snippets:</strong> the names and commands you save, whether each one runs straight away, and when you made it. They are stored as you type them, so please don't put passwords in a snippet.</li>
 </ul>
-<p>None of this is sent to us or to anyone else. Hosts you type into Quick Connect are used once and not saved.</p>
+<p>None of this is sent to us or to anyone else. Hosts you type into Quick Connect are not added to your hosts, and their user name and password are not saved; if you trust the server's host key, its address, port and fingerprint are kept in Known Hosts like any other server's.</p>
 </section>
 
 <section>
 <h2>Passwords and private keys</h2>
 <p>Passwords and private keys are stored only in Pylo's encrypted storage on your phone: they are encrypted with AES-GCM under a key that Android's Keystore holds and that cannot be taken off the phone. They are never written to the database, the settings file or a log, and Pylo's backup rules leave them out of Android's backup and device-to-device transfer.</p>
 <ul>
-<li>A password you type when connecting is saved only if “Save Password” is on, and never for Quick Connect or the Demo Server. A password you enter in a host's settings is saved there, in the same encrypted storage, so Pylo can sign in for you; you can remove it at any time.</li>
-<li>A private key you import is checked on your phone and stored, opened, in the encrypted storage. A key's passphrase is used once to open it and then forgotten. Keys you generate in Pylo are made on your phone and never leave it unless you share the public half.</li>
+<li>A password you type when connecting is saved only if “Save Password” is on, and never for Quick Connect or the offline demo. A password you enter in a host's settings is saved there, in the same encrypted storage, so Pylo can sign in for you; you can remove it at any time.</li>
+<li>A private key you import is checked on your phone and stored, opened, in the encrypted storage. If you import a key from a file, Android's file picker gives Pylo a temporary copy of the file in its private cache; Pylo deletes it as soon as the key has been read. A key's passphrase is used once to open it and then forgotten. Keys you generate in Pylo are made on your phone and never leave it unless you share the public half.</li>
 <li>Pylo never shows a private key or a saved password again. While you type a password, a passphrase or a private key, Pylo blocks screenshots and screen recording of that screen, and asks your keyboard not to learn from or suggest for what you type. Settings › Block Screenshots does the same for the whole app.</li>
 <li>Deleting a host deletes its saved password; deleting a key deletes its private half. Settings › Delete All Data erases all of them.</li>
 </ul>
@@ -41,10 +41,10 @@
 
 <section>
 <h2>Connecting to your servers</h2>
-<p>Pylo connects only to the hosts you add or type in, on the port you give, over SSH. Pylo signs in with the password or key you chose for that host. Other sign-in questions (such as a one-time code) are answered with what you type, except that when a server asks for the same password a second way in one sign-in, Pylo gives it the password you just used rather than asking you twice. Everything you type in a terminal, the screen output, and the files you browse, download or upload travel only between your phone and that server, encrypted by SSH; no one else, including Aplogon, can read them. The terminal's text and scrollback are kept only in memory while the session is open, and are never saved or sent anywhere else.</p>
+<p>Pylo connects only to the hosts you add or type in, on the port you give, over SSH. Pylo signs in with the password or key you chose for that host. Other sign-in questions (such as a one-time code) are answered with what you type, except that when a server asks for the same password a second way in one sign-in, Pylo gives it the password you just used rather than asking you twice. Everything you type in a terminal, the screen output, and the files you browse, download or upload travel only between your phone and that server, encrypted by SSH, so once you have confirmed the server's host key, no one in between, Aplogon included, can read them on the way; they never pass through a server of ours. Whoever runs the server can of course see what you do on it, and what you type in the terminal goes through your phone's keyboard app like any other typing. The terminal's text and scrollback are kept only in memory while the session is open, and are never saved or sent anywhere else.</p>
 <p>The first time you connect to a server, Pylo shows its host-key fingerprint and connects only if you trust it. If a server you trusted presents a different key later, Pylo refuses to connect and tells you, until you choose to remove the old key. Pylo uses modern encryption by default; older algorithms are used only for a host where you turn them on.</p>
 <p>Port forwards you set up (Pro) listen only on your phone's own loopback address (127.0.0.1), so only apps on your phone can use them, and their traffic goes through your server.</p>
-<p>The Demo Server is a pretend server inside the app. It works offline, never connects anywhere, and what you do in it is forgotten when Pylo closes.</p>
+<p>The offline demo (“Demo (Offline)” on the Hosts tab) is a pretend server inside the app. It works offline, never connects anywhere, and what you do in it is forgotten when Pylo closes.</p>
 </section>
 
 <section>
@@ -53,14 +53,14 @@
 <li><strong>Preview:</strong> a text file you preview is read into memory and shown; it is not saved.</li>
 <li><strong>Save to Downloads:</strong> the file is downloaded into Pylo's private cache, then copied to your phone's Download/Pylo folder (on Android 10 and later; on Android 9 and older, to Pylo's own folder <code>Android/data/com.applogon.pylo/files/Download</code>). The copy in the cache is deleted straight away. Files in Download/Pylo are yours: they stay there, where other apps with access to your downloads can see them, until you delete them.</li>
 <li><strong>Share:</strong> the file is downloaded into Pylo's private cache and handed to Android's share sheet, and goes only to the app or place you pick, which then handles it under its own policy. Pylo deletes its download right away, but the sharing component keeps its own copy in Pylo's cache (in <code>cache/share_plus</code>) until the next time you share a file from Pylo or until Android clears the cache.</li>
-<li><strong>Upload:</strong> you choose a file in Android's file picker; Pylo reads it straight from there and sends it to your server, without keeping a copy. Pylo has no permission to read your phone's storage otherwise.</li>
+<li><strong>Upload:</strong> you choose a file in Android's file picker, which gives Pylo a temporary copy in its private cache; Pylo sends it to your server and then deletes that copy, whether the upload worked or not. Pylo has no permission to read your phone's storage otherwise.</li>
 <li>Renaming, deleting, new folders and permissions (Pro) change files on your server only when you confirm.</li>
 </ul>
 </section>
 
 <section>
 <h2>Clipboard and sharing</h2>
-<p>Pylo reads your clipboard only when you tap Paste (in the terminal's key bar or on the Import Key page), and puts text on it only when you tap Copy (a selection in the terminal, or a public key). Text on the clipboard can be seen by other apps that can read it, so copy secrets with care. Sharing a public key or “Share Pylo” opens Android's share sheet with that text only. “Rate Pylo” opens Pylo's page on Google Play.</p>
+<p>Pylo reads your clipboard only when you tap Paste (in the terminal or on the Import Key page), and puts text on it only when you tap Copy: a selection in the terminal, a public key or its install command, a host-key fingerprint, a file or folder path, or Copy All on a text file you preview. Text on the clipboard can be seen by other apps that can read it, so copy secrets with care. Sharing a public key or “Share Pylo” opens Android's share sheet with that text only. “Rate Pylo” opens Pylo's page on Google Play.</p>
 </section>
 
 <section>
@@ -71,7 +71,7 @@
 
 <section>
 <h2>Your settings</h2>
-<p>Pylo stores your settings (the theme, terminal theme, text size and cursor, keep-alive, scrollback, bell vibration, keep screen on, App Lock and when it locks, Block Screenshots, showing the Demo Server and hidden files), whether you have finished the introduction and seen the background notice, how many times the app has been opened, whether Pylo Pro is active (which product and when it was last checked), and, for the free version's ads, when a full-screen ad was last shown and how many were shown today. They stay in Pylo's private storage on your phone and are not sent to us or to anyone else.</p>
+<p>Pylo stores your settings (the theme, terminal theme, text size and cursor, keep-alive, scrollback, bell vibration, keep screen on, App Lock and when it locks, Block Screenshots, showing the demo host and hidden files), whether you have finished the introduction and seen the background notice, how many times the app has been opened, whether Pylo Pro is active (which product and when it was last checked), and, for the free version's ads, when a full-screen ad was last shown and how many were shown today. They stay in Pylo's private storage on your phone and are not sent to us or to anyone else.</p>
 <p>If your phone's Android backup is turned on, Android may copy this settings file, and only this file, to your own Google account backup so it can be restored on a new phone; that backup is managed by Google under your Google account settings. Your hosts, keys, passwords, known hosts and snippets are never part of it, so on a new phone you add them again.</p>
 </section>
 
@@ -107,7 +107,7 @@
 
 <section>
 <h2>Data retention and deletion</h2>
-<p>Everything Pylo stores stays on your phone until you delete it. Settings › Delete All Data disconnects every session and erases your hosts, keys, passwords, known hosts and snippets; uninstalling Pylo removes everything it stores, including its encrypted storage and any shared copy in its cache. Files you saved to Download/Pylo (Android 10 and later) stay there until you delete them, and files you shared stay wherever you sent them. If Android backup is on, a copy of Pylo's settings may stay in your Google account backup after you uninstall, and may be restored if you reinstall; Google manages that copy under your Google account's backup settings. Data on your servers stays on your servers.</p>
+<p>Everything Pylo stores stays on your phone until you delete it. Settings › Delete All Data disconnects every session and erases your hosts, keys, passwords, known hosts and snippets, and any temporary copies of files in Pylo's cache (your settings stay); uninstalling Pylo removes everything it stores, including its encrypted storage and any shared copy in its cache. Files you saved to Download/Pylo (Android 10 and later) stay there until you delete them, and files you shared stay wherever you sent them. If Android backup is on, a copy of Pylo's settings may stay in your Google account backup after you uninstall, and may be restored if you reinstall; Google manages that copy under your Google account's backup settings. Data on your servers stays on your servers.</p>
 <p>Aplogon never receives your data, so we have no copy to delete. If you email us, we keep your message only as long as needed to help you, and you can ask us to delete it. Purchase records are kept by Google Play under its own policies. Data collected by Google for ads is kept under Google's own policies; you can reset or delete your advertising ID in your phone's settings.</p>
 </section>
 
@@ -125,7 +125,7 @@
 <h2>Your choices</h2>
 <ul>
 <li>Choose which servers Pylo connects to and which host keys it trusts; forget a known host in Settings › Known Hosts.</li>
-<li>Save passwords only when you want to, delete a host, a key or everything (Settings › Delete All Data), and turn on App Lock or Block Screenshots.</li>
+<li>Save passwords only when you want to, delete a host, a key or all your data (Settings › Delete All Data), and turn on App Lock or Block Screenshots.</li>
 <li>Change your ad privacy choices in Settings › Ad Privacy Choices (where the law requires the option), reset or delete your advertising ID in your phone's settings, or upgrade to Pro to remove ads.</li>
 </ul>
 </section>
