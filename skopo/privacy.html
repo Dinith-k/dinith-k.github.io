@@ -4,7 +4,7 @@
 <link rel="icon" href="icon.png" type="image/png"><link rel="stylesheet" href="../style.css"></head>
 <body><main>
 <header><a href="../" class="logo-link" aria-label="Aplogon apps"><img class="logo" src="icon.png" alt=""></a><h1>Privacy Policy</h1></header>
-<p class="meta">Skopo: JSON Viewer, Hex Editor · Aplogon · Effective 19 October 2026</p>
+<p class="meta">Skopo: JSON Viewer, Hex Editor · Aplogon · Effective 20 October 2026</p>
 
 <section>
 <h2>The short version</h2>
@@ -31,7 +31,7 @@
 <section>
 <h2>Saving, exporting and sharing</h2>
 <p>Skopo writes to a file only when you tap Save. You can replace the original (Skopo asks you to confirm first, and only where the app holding the file allows it; for byte edits it may write just the changed bytes), or save a new file wherever you choose in Android's file picker. Export works the same way, or through Android's share sheet. Nothing is ever written without you asking.</p>
-<p>When you share a file, a converted file or a document's text, Skopo opens Android's share sheet and it goes only to the app or place you pick, which then handles it under its own policy. To share it, Skopo writes a copy to its private cache folder on your phone (in <code>cache/share_plus</code>), which stays there until the next time you share something from Skopo or until Android clears the cache. Shared files are not encrypted, so keep them somewhere safe. “Share Skopo” shares a short description with a link to Skopo on Google Play, and “Rate Skopo” opens Skopo's page on Google Play.</p>
+<p>When you share a file, a converted file or a document's text, Skopo opens Android's share sheet and it goes only to the app or place you pick, which then handles it under its own policy. To share it, Skopo writes a temporary copy to its private cache folder on your phone and deletes it as soon as the share sheet has taken it (or, if Skopo is closed before then, the next time it starts). The copy the share sheet reads, in <code>cache/share_plus</code>, stays there until the next time you share something from Skopo or until Android clears the cache. Shared files are not encrypted, so keep them somewhere safe. “Share Skopo” shares a short description with a link to Skopo on Google Play, and “Rate Skopo” opens Skopo's page on Google Play.</p>
 </section>
 
 <section>
